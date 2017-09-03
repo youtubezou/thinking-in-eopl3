@@ -1,0 +1,41 @@
+graph inc_one_base{
+
+	splines=line;
+	
+	subgraph cluster_zero1 {
+		label = "zero1"
+		zero1_a [label="num=0"];
+		zero1_c [label="one_1",style=filled,color=red];
+		zero1_b [label="one_1"];
+
+		zero1_a -- zero1_b;
+		zero1_a -- zero1_c;
+	}
+
+	subgraph cluster_zero2 {
+		label = "zero2"
+		zero2_a [label="num=0",style=filled,color=red];
+		zero2_b [label="one_1"];
+		zero2_c [label="one_1"];
+
+		zero2_a -- zero2_b;
+		zero2_a -- zero2_c;
+	}
+
+	subgraph cluster_inc_one {
+		label = "inc_one"
+		inc_one_a [label="num=1"];
+		inc_one_c [label="joint=0",style=filled,color=red];
+		inc_one_b [label="one_1"];
+		inc_one_d [label="one_1"];
+		inc_one_e [label="one_1"];
+		
+		inc_one_a -- inc_one_b;
+		inc_one_a -- inc_one_c;
+			inc_one_c -- inc_one_d;
+			inc_one_c -- inc_one_e;
+	}
+	
+	zero1_c -- zero2_a [label="joint",style="dotted",color="red"];
+	
+}
