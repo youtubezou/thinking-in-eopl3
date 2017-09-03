@@ -1,5 +1,9 @@
 #lang eopl
 
+;environment representation:
+;empty -> '()
+;non-empty -> '(('a 1) ('b 2))
+
 ;report-no-binding-found: SchemeVal -> ErrorMsg
 (define (report-no-binding-found search-var)
   (eopl:error 'apply-env "No Binding for ~s" search-var))
